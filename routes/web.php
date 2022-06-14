@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Layouts
+Route::get('/', 'PageController@index')->name('app');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Partials
+Route::get('/header', 'PartialsController@partials')->name('header');
+Route::get('/footer', 'PartialsController@partials')->name('footer');
+
+// Components
+Route::get('/', 'ViaggioController@content')->name('main');
+
+
